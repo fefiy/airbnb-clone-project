@@ -15,7 +15,7 @@ Tech Stack: Django, PostgreSQL, GraphQL, Docker, and GitHub Actions for CI/CD.
 - Project Manager: Oversees task planning, progress tracking, and team coordination
 
 # Technology Stack
-- Django	Backend framework for building APIs and handling business logic.
+- Django	Backend - framework for building APIs and handling business logic.
 - PostgreSQL	Relational database to store users, properties, bookings, and payments.
 - GraphQL Efficient API query language for flexible data retrieval.
 - Docker Containerization for consistent development and production environments.
