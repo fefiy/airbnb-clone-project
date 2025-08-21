@@ -8,28 +8,18 @@ Goals
 Tech Stack: Django, PostgreSQL, GraphQL, Docker, and GitHub Actions for CI/CD.
 
 # Team Roles and Responsibilities
-Backend Developer	
- - Builds APIs, handles business logic, and integrates with the database.
-Database Administrator (DBA)
- - Designs and optimizes database schema, ensures data integrity, and manages backups.
-DevOps Engineer
- - Sets up CI/CD pipeline, manages Docker environments, and ensures deployment automation.
-QA Engineer
- - Creates automated tests, performs manual testing, and ensures backend quality.
-Project Manager
- -Oversees task planning, progress tracking, and team coordination
+Backend Developer: 	Builds APIs, handles business logic, and integrates with the database.
+Database Administrator (DBA):  Designs and optimizes database schema, ensures data integrity, and manages backups.
+DevOps Engineer: Sets up CI/CD pipeline, manages Docker environments, and ensures deployment automation.
+QA Engineer: Creates automated tests, performs manual testing, and ensures backend quality.
+Project Manager: Oversees task planning, progress tracking, and team coordination
 
 # Technology Stack
-Django	
- - Backend framework for building APIs and handling business logic.
-PostgreSQL	
- - Relational database to store users, properties, bookings, and payments.
-GraphQL
- - Efficient API query language for flexible data retrieval.
-Docker
- - Containerization for consistent development and production environments.
-GitHub Actions
- - Automates testing, linting, and deployment.
+- Django	Backend framework for building APIs and handling business logic.
+- PostgreSQL	Relational database to store users, properties, bookings, and payments.
+- GraphQL Efficient API query language for flexible data retrieval.
+- Docker Containerization for consistent development and production environments.
+- GitHub Actions Automates testing, linting, and deployment.
 
 #  Database Design Overview
  - Users: Contains fields such as id, name, email, password_hash, and role. A user can list multiple properties and make multiple bookings.
