@@ -27,3 +27,20 @@ Tech Stack: Django, PostgreSQL, GraphQL, Docker, and GitHub Actions for CI/CD.
  - Bookings: Stores id, user_id, property_id, start_date, and end_date. Each booking is linked to one user and one property.
  - Reviews: Contains id, user_id, property_id, rating, and comment. A user can review multiple properties.
  - Payments: Includes id, booking_id, amount, status, and transaction_date. Each payment is tied to a specific booking.
+
+ # Feature Breakdown
+
+User Management
+Create, update, and authenticate user accounts with secure password handling.
+
+Property Management
+Allows hosts to add, update, or remove properties with details like description, price, and location.
+
+Booking System
+Manage property availability and allow users to create and view bookings.
+
+Reviews and Ratings
+Users can leave feedback and ratings for properties they’ve booked.
+
+Payment Processing
+Store payment details and statuses to track completed or pending transactions.
