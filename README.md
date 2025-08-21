@@ -44,3 +44,31 @@ Users can leave feedback and ratings for properties they’ve booked.
 
 Payment Processing
 Store payment details and statuses to track completed or pending transactions.
+
+# API Security
+
+Authentication (JWT or Token-Based)	Verifies user identity for accessing secure endpoints.
+Authorization	Ensures only authorized users (e.g., property owners) can modify their resources.
+Rate Limiting	Prevents abuse or brute-force attacks.
+Data Validation	Ensures only safe, sanitized input reaches the backend.
+HTTPS/Encryption	Protects sensitive user and payment data during transmission.
+
+# CI/CD Pipeline Overview
+What is CI/CD?
+- Continuous Integration (CI) tests every commit, and Continuous Deployment (CD) automates code releases to staging or production environments.
+
+Tools Used:
+
+- GitHub Actions: For automated testing and deployments.
+
+- Docker: For containerized environments.
+
+- Pytest: For running automated backend tests.
+
+Benefits:
+
+- Faster and more reliable deployments.
+
+- Early detection of bugs.
+
+- Consistent and reproducible builds.
