@@ -1,74 +1,126 @@
 # Airbnb Clone Project (Backend)
 
 A backend-only Airbnb Clone application to manage property listings, user accounts, bookings, reviews, and payments, providing APIs to support client applications.
-Goals
-- Build a scalable backend API.
-- Implement secure user authentication and authorization.
-- Provide a reliable booking and payment system.
-Tech Stack: Django, PostgreSQL, GraphQL, Docker, and GitHub Actions for CI/CD.
 
-# Team Roles and Responsibilities
-- Backend Developer - 	Builds APIs, handles business logic, and integrates with the database.
-- Database Administrator (DBA) -  Designs and optimizes database schema, ensures data integrity, and manages backups.
-- DevOps Engineer - Sets up CI/CD pipeline, manages Docker environments, and ensures deployment automation.
-- QA Engineer - Creates automated tests, performs manual testing, and ensures backend quality.
-- Project Manager - Oversees task planning, progress tracking, and team coordination
+## Project Goals
+- Build a scalable backend API
+- Implement secure user authentication and authorization
+- Provide a reliable booking and payment system
 
-# Technology Stack
-- Django	Backend - framework for building APIs and handling business logic.
-- PostgreSQL -	Relational database to store users, properties, bookings, and payments.
-- GraphQL - Efficient API query language for flexible data retrieval.
-- Docker - Containerization for consistent development and production environments.
-- GitHub Actions - Automates testing, linting, and deployment.
+## Tech Stack
+- Django: Web framework for building RESTful APIs
+- PostgreSQL: Relational database for data storage
+- GraphQL: Efficient API query language for flexible data retrieval
+- Docker: Containerization for consistent environments
+- GitHub Actions: CI/CD automation for testing and deployment
 
-#  Database Design Overview
- - Users: Contains fields such as id, name, email, password_hash, and role. A user can list multiple properties and make multiple bookings.
- - Properties: Includes id, title, description, location, and price_per_night. Each property belongs to a user (the owner) and can have many bookings and reviews.
- - Bookings: Stores id, user_id, property_id, start_date, and end_date. Each booking is linked to one user and one property.
- - Reviews: Contains id, user_id, property_id, rating, and comment. A user can review multiple properties.
- - Payments: Includes id, booking_id, amount, status, and transaction_date. Each payment is tied to a specific booking.
+## Team Roles and Responsibilities
 
- # Feature Breakdown
+### Backend Developer
+Builds APIs, handles business logic, and integrates with the database.
 
-User Management
-Create, update, and authenticate user accounts with secure password handling.
+### Database Administrator (DBA)
+Designs and optimizes database schema, ensures data integrity, and manages backups.
 
-Property Management
-Allows hosts to add, update, or remove properties with details like description, price, and location.
+### DevOps Engineer
+Sets up CI/CD pipeline, manages Docker environments, and ensures deployment automation.
 
-Booking System
-Manage property availability and allow users to create and view bookings.
+### QA Engineer
+Creates automated tests, performs manual testing, and ensures backend quality.
 
-Reviews and Ratings
-Users can leave feedback and ratings for properties they’ve booked.
+### Project Manager
+Oversees task planning, progress tracking, and team coordination.
 
-Payment Processing
-Store payment details and statuses to track completed or pending transactions.
+## Database Design
 
-# API Security
+### Users
+- user_id (Primary Key)
+- name
+- email
+- password_hash
+- role
 
-- Authentication (JWT or Token-Based)	Verifies user identity for accessing secure endpoints.
-- Authorization	Ensures only authorized users (e.g., property owners) can modify their resources.
-- Rate Limiting	Prevents abuse or brute-force attacks.
-- Data Validation	Ensures only safe, sanitized input reaches the backend.
-- HTTPS/Encryption	Protects sensitive user and payment data during transmission.
+### Properties
+- property_id (Primary Key)
+- title
+- description
+- location
+- price_per_night
+- user_id (Foreign Key to Users)
 
-# CI/CD Pipeline Overview
-What is CI/CD?
-- Continuous Integration (CI) tests every commit, and Continuous Deployment (CD) automates code releases to staging or production environments.
+### Bookings
+- booking_id (Primary Key)
+- user_id (Foreign Key to Users)
+- property_id (Foreign Key to Properties)
+- start_date
+- end_date
 
-Tools Used:
+### Reviews
+- review_id (Primary Key)
+- user_id (Foreign Key to Users)
+- property_id (Foreign Key to Properties)
+- rating
+- comment
 
-- GitHub Actions: For automated testing and deployments.
+### Payments
+- payment_id (Primary Key)
+- booking_id (Foreign Key to Bookings)
+- amount
+- status
+- transaction_date
 
-- Docker: For containerized environments.
+**Relationships:**
+- A User can have multiple Properties (One-to-Many)
+- A Property can have multiple Bookings (One-to-Many)
+- A Booking belongs to one User and one Property (Many-to-One)
+- A Review belongs to one User and one Property (Many-to-One)
+- A Payment is associated with one Booking (One-to-One)
 
-- Pytest: For running automated backend tests.
+## Feature Breakdown
 
-Benefits:
+### User Management
+Create, update, and authenticate user accounts with secure password handling. Essential for securing user data and enabling personalized experiences.
 
-- Faster and more reliable deployments.
+### Property Management
+Allows hosts to add, update, or remove properties with details like description, price, and location. Core functionality for listing availability.
 
-- Early detection of bugs.
+### Booking System
+Manage property availability and allow users to create and view bookings. Central to the rental business model.
 
-- Consistent and reproducible builds.
+### Reviews and Ratings
+Users can leave feedback and ratings for properties they've booked. Builds trust and helps users make informed decisions.
+
+### Payment Processing
+Store payment details and statuses to track completed or pending transactions. Critical for monetization and transaction tracking.
+
+## API Security
+
+### Authentication (JWT or Token-Based)
+Verifies user identity for accessing secure endpoints. Crucial for protecting user accounts and personal data.
+
+### Authorization
+Ensures only authorized users (e.g., property owners) can modify their resources. Prevents unauthorized access to sensitive operations.
+
+### Rate Limiting
+Prevents abuse or brute-force attacks by limiting API requests. Protects system resources and maintains service availability.
+
+### Data Validation
+Ensures only safe, sanitized input reaches the backend. Prevents injection attacks and data corruption.
+
+### HTTPS/Encryption
+Protects sensitive user and payment data during transmission. Essential for maintaining data confidentiality.
+
+## CI/CD Pipeline
+
+### What is CI/CD?
+Continuous Integration (CI) automatically tests every code commit, while Continuous Deployment (CD) automates code releases to staging or production environments. This ensures faster and more reliable deployments with early detection of bugs.
+
+### Tools Used
+- GitHub Actions: For automated testing and deployments
+- Docker: For containerized environments ensuring consistency
+- Pytest: For running automated backend tests
+
+### Benefits
+- Faster and more reliable deployments
+- Early detection of bugs through automated testing
+- Consistent and reproducible builds across environments
